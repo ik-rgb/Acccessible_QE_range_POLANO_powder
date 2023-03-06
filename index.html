@@ -1,0 +1,214 @@
+<head>
+<title >Accessible Q-E range of POLANO(BL23)</title>
+<link rel="stylesheet" type="text/css" href="./common.css">
+<script type="text/javascript" src="./POLANO_QErange.js?20220305"></script>
+</head>
+<body>
+    <div class="fullbox">
+    <table class="header_table">
+        <tr>
+            <td ><font class="mytitle">Accessible Q-E range of POLANO(BL23)</font> <font color="white">ver</font> <font color="white" id="verNum"></font></td>
+            <td class="menu_item"><a href="#sec_Inst" class="headerLink">Instrument</a></td>
+            <td class="menu_item"><a href="#sec_TOF" class="headerLink">TOF diagram</a></td>
+            <td class="menu_item"><a href="#sec_QEcuts" class="headerLink">Q-E cuts</a></td>
+            <td class="dummy_text">-----</td>
+        </tr>
+    </table>
+    </div>
+<br />
+
+<div class="mainbody">
+
+
+<div class="dummy_space1" id="sec_Inst">-</div>
+<div class="dummy_space2">-</div>
+
+<div class="section_01">Instrument</div>
+<table>
+    <tr>
+        <td valign="top">
+            L<sub>1</sub> (moderator to sample) : <input type="text" size="5" id="input_L1" value="17.5"> m <br />
+            L<sub>2</sub> (sample to detector) : <input type="text" size="5" id="input_L2" value="2.0"> m <br />
+            L<sub>3</sub> (monochro chopper to sample) : <input type="text" size="5" id="input_L3" value="1.85"> m <br />
+            L<sub>T0</sub> (moderator to T<sub>0</sub> chopper) : <input type="text" size="5" id="input_LT0" value="9.0"> m <br />
+            <input type="button" value="   set   " id="setInstParams_button"/><br />
+        </td>
+        <td>
+            <div class="dummy_text2">------</div>
+        </td>
+        <td valign="top">
+            Det1 : <input type="text" size="6" id="D1_tth_min" value="-29.165"> -  <input type="text" size="6" id="D1_tth_max" value="-10.835"><br />
+            Det2 : <input type="text" size="6" id="D2_tth_min" value="-9.165"> -  <input type="text" size="6" id="D2_tth_max" value="-3"><br />
+            Det3 : <input type="text" size="6" id="D3_tth_min" value="3"> -  <input type="text" size="6" id="D3_tth_max" value="9.165"><br />
+            Det4 : <input type="text" size="6" id="D4_tth_min" value="10.835"> -  <input type="text" size="6" id="D4_tth_max" value="29.165"><br />
+            Det5 : <input type="text" size="6" id="D5_tth_min" value="30.835"> -  <input type="text" size="6" id="D5_tth_max" value="49.165"><br />
+            Det6 : <input type="text" size="6" id="D6_tth_min" value="50.835"> -  <input type="text" size="6" id="D6_tth_max" value="69.165"><br />
+            Det7 : <input type="text" size="6" id="D7_tth_min" value="70.835"> -  <input type="text" size="6" id="D7_tth_max" value="89.165"><br />
+            Det8 : <input type="text" size="6" id="D8_tth_min" value="90.835"> -  <input type="text" size="6" id="D8_tth_max" value="109.165"><br />
+            Det9 : <input type="text" size="6" id="D9_tth_min" value="110.835"> -  <input type="text" size="6" id="D9_tth_max" value="129.165"><br />
+        </td>
+    </tr>
+</table>
+<img src="HRC_layout_v7.png"><br />
+(Cited from <a href="https://doi.org/10.1016/j.physb.2018.11.059" target="_blank">S. Itoh <i>et al</i>. Physica B: Condensed Matter <b>568</b>, 76-80 (2019)</a>, and modified from the original version. )<br />
+See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite : BL12 HRC - High Resolution Chopper Spectrometer -</a>            
+
+
+<div class="dummy_space1" id="sec_TOF">-</div>
+<div class="dummy_space2">-</div>
+
+<div class="section_01">TOF diagram</div>
+<table>
+        <tr>
+            <td>
+            <canvas id="CanvasTOF" width="500" height="280"></canvas><br />
+            </td>
+            <td>
+                Chopper face at t=0 :
+                <select id="chopperFace">
+                    <option value="1">Front</option>
+                    <option value="0">Back</option>
+                </select> <br />
+                Fermi chopper freq. :
+                <select id="freq">
+                    <option value="100">100 Hz</option>
+                    <option value="200">200 Hz</option>
+                    <option value="300" selected>300 Hz</option>
+                    <option value="400">400 Hz</option>
+                    <option value="500">500 Hz</option>
+                    <option value="600">600 Hz</option>
+                </select> <br />
+                T<sub>0</sub> chopper freq. :
+                <select id="T0_freq">
+                    <option value="25">25 Hz</option>
+                    <option value="50" selected>50 Hz</option>
+                    <option value="100">100 Hz</option>
+                </select> <br />
+                Target <i>E</i><sub>i</sub> : <input type="text" size="5" id="targetEi" value="40"> meV <br />
+                Upper limit of <i>E</i><sub>i</sub> : <input type="text" size="5" id="upperLimitEi" value="8000"> meV <br />
+
+                <input type="button" value="   set   " id="setChopperParams_button"/><br />
+                <br />
+                <i>E</i><sub>i</sub> number offset : <input type="text" size="5" id="Ei_Num_ofst" value="0"> (for plotting)<br />
+                phase offset : <input type="text" size="8" id="offset" value="0"> ms<br />
+                <i>E</i><sub>i(1)</sub>:<input size="10" id="E1"> meV <font color="#FF0000" id="isE1Optimum"></font> <br />
+                <i>E</i><sub>i(2)</sub>:<input size="10" id="E2"> meV <font color="#FF0000" id="isE2Optimum"></font><br />
+                <i>E</i><sub>i(3)</sub>:<input size="10" id="E3"> meV <font color="#FF0000" id="isE3Optimum"></font><br />
+                <i>E</i><sub>i(4)</sub>:<input size="10" id="E4"> meV <font color="#FF0000" id="isE4Optimum"></font><br />
+                <i>E</i><sub>i(5)</sub>:<input size="10" id="E5"> meV <font color="#FF0000" id="isE5Optimum"></font>
+
+            </td>
+        </tr>
+    </table>
+
+<div class="dummy_space1" id="sec_QEcuts">-</div>
+<div class="dummy_space2">-</div>
+
+<div class="section_01"><i>Q</i>-<i>E</i> cuts (on the equator plane)</div>
+<table>
+    <tr>
+        <td width="380">
+            <b>Sample</b>
+        </td>
+        <td width="300">
+            <b><i>q</i>-vectors</b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <i>a</i>* : <input type="text" size="6" id="a_star" value="1.5"> A<sup>-1</sup><br />
+            <i>b</i>* : <input type="text" size="6" id="b_star" value="1.5"> A<sup>-1</sup><br />
+            angle between <i>a</i>* and <i>b</i>* : <input type="text" size="6" id="gamma_star" value="90"> deg.<br />
+            <input type="button" value="   set   " id="setLatticeParams_button"/><br />
+        </td>
+        <td>
+                <i>q</i><sub>1</sub> : <i>h</i> <input type="text" size="6" id="qh1" value="0">, <i>k</i> <input type="text" size="6" id="qk1" value="0"><br />
+                <i>q</i><sub>2</sub> : <i>h</i> <input type="text" size="6" id="qh2" value="0">, <i>k</i> <input type="text" size="6" id="qk2" value="0"><br />
+                <i>q</i><sub>3</sub> : <i>h</i> <input type="text" size="6" id="qh3" value="0">, <i>k</i> <input type="text" size="6" id="qk3" value="0"><br />
+                <input type="button" value="   set   " id="setQVector_button"/><br />
+        </td>
+    </tr>
+</table>
+<br />
+&omega;<sub>offset</sub> : <input type="text" size="5" id="omg_ofst" value="-57"> (&omega; angle for <b><i>a</i></b>* || <b><i>k</i></b><sub>i</sub>) <br />
+&omega; angle range : from <input type="text" size="5" id="omega1" value="-50"> to <input type="text" size="5" id="omega2" value="0"> degs <br />
+<input type="button" value="   set   " id="setScanParams_button"/><br />
+>> Calculated &psi; angle range : from <input type="text" size="8" id="Psi1" value="0"> to <input type="text" size="8" id="Psi2" value="0"> (Note: &psi; = &minus; (&omega; &minus; &omega;<sub>offset</sub>))<br /> 
+<br />
+<br />
+
+<div class="section_02"><i>E</i><sub>i(1)</sub> = <font id="E1_calc"></font> meV</div>
+<table cellpadding="5">
+    <tr>
+        <td>
+            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw1"><input size="10" value="0" id="hbw1"> meV<br />
+            <canvas id="CanvasQxy1" width="500" height="500" class="box"></canvas>
+        </td>
+        <td>
+            Q-E cut from (H <input type="text" size="5" id="startH1" value="1">, K <input type="text" size="5" id="startK1" value="0">)  to  (H <input type="text" size="5" id="endH1" value="1">, K <input type="text" size="5" id="endK1" value="-1">) <input type="button" value="   set   " id="setScanRange_button1"/> <br />
+            <canvas id="CanvasQE1" width="500" height="390" class="box"></canvas>
+        </td>
+    </tr>
+</table>
+<br />
+<div class="section_02"><i>E</i><sub>i(2)</sub> = <font id="E2_calc"></font> meV</div>
+<table cellpadding="5">
+    <tr>    
+        <td>
+            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw2"><input size="10" value="0" id="hbw2"> meV<br />
+            <canvas id="CanvasQxy2" width="500" height="500" class="box"></canvas>
+        </td>
+        <td>
+                Q-E cut from (H <input type="text" size="5" id="startH2" value="1">, K <input type="text" size="5" id="startK2" value="0">)  to  (H <input type="text" size="5" id="endH2" value="1">, K <input type="text" size="5" id="endK2" value="-1">) <input type="button" value="   set   " id="setScanRange_button2"/> <br />
+                <canvas id="CanvasQE2" width="500" height="390" class="box"></canvas>
+        </td>
+    </tr>
+</table>
+<br />
+<div class="section_02"><i>E</i><sub>i(3)</sub> = <font id="E3_calc"></font> meV</div>
+<table cellpadding="5">
+    <tr>    
+        <td>
+            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw3"><input size="10" value="0" id="hbw3"> meV<br />
+            <canvas id="CanvasQxy3" width="500" height="500" class="box"></canvas>
+        </td>
+        <td>
+            Q-E cut from (H <input type="text" size="5" id="startH3" value="1">, K <input type="text" size="5" id="startK3" value="0">) to (H <input type="text" size="5" id="endH3" value="1">, K  <input type="text" size="5" id="endK3" value="-1">) <input type="button" value="   set   " id="setScanRange_button3"/><br />
+            <canvas id="CanvasQE3" width="500" height="390" class="box"></canvas>
+        </td>
+    </tr>
+</table>
+<br />
+<div class="section_02"><i>E</i><sub>i(4)</sub> = <font id="E4_calc"></font> meV</div>
+<table cellpadding="5">
+    <tr>    
+        <td>
+            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw4"><input size="10" value="0" id="hbw4"> meV<br />
+            <canvas id="CanvasQxy4" width="500" height="500" class="box"></canvas>
+        </td>
+        <td>
+            Q-E cut from (H <input type="text" size="5" id="startH4" value="1">, K <input type="text" size="5" id="startK4" value="0">) to (H <input type="text" size="5" id="endH4" value="1">, K <input type="text" size="5" id="endK4" value="-1">) <input type="button" value="   set   " id="setScanRange_button4"/> <br />
+            <canvas id="CanvasQE4" width="500" height="390" class="box"></canvas>
+        </td>
+    </tr>
+</table>
+<br />
+<div class="section_02"><i>E</i><sub>i(5)</sub> = <font id="E5_calc"></font> meV</div>
+<table cellpadding="5">
+    <tr>    
+        <td>
+            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw5"><input size="10" value="0" id="hbw5"> meV<br />
+            <canvas id="CanvasQxy5" width="500" height="500" class="box"></canvas>
+        </td>
+        <td>
+            Q-E cut from (H <input type="text" size="5" id="startH5" value="1">, K <input type="text" size="5" id="startK5" value="0">) to (H <input type="text" size="5" id="endH5" value="1">, K <input type="text" size="5" id="endK5" value="-1">) <input type="button" value="   set   " id="setScanRange_button5"/><br />
+            <canvas id="CanvasQE5" width="500" height="390" class="box"></canvas>
+        </td>
+    </tr>
+</table>
+<br />
+
+
+<div class="footer"> Version <font id="verNum2"></font> by <a href="https://nakajima.issp.u-tokyo.ac.jp">T. Nakajima</a>, D. Ueta, 2023.</div>
+</div> <!--end of mainbody-->
+</body>
