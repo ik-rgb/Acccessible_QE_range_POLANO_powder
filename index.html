@@ -1,13 +1,13 @@
 <head>
 <title >Accessible Q-E range of POLANO(BL23)</title>
 <link rel="stylesheet" type="text/css" href="./common.css">
-<script type="text/javascript" src="./POLANO_QErange.js?20220305"></script>
+<script type="text/javascript" src="./POLANO_QErange_powder.js?20220306"></script>
 </head>
 <body>
     <div class="fullbox">
     <table class="header_table">
         <tr>
-            <td ><font class="mytitle">Accessible Q-E range of POLANO(BL23)</font> <font color="white">ver</font> <font color="white" id="verNum"></font></td>
+            <td ><font class="mytitle">Accessible Q-E range of POLANO(BL23) for powder sample</font> <font color="white">ver</font> <font color="white" id="verNum"></font></td>
             <td class="menu_item"><a href="#sec_Inst" class="headerLink">Instrument</a></td>
             <td class="menu_item"><a href="#sec_TOF" class="headerLink">TOF diagram</a></td>
             <td class="menu_item"><a href="#sec_QEcuts" class="headerLink">Q-E cuts</a></td>
@@ -31,21 +31,8 @@
             L<sub>2</sub> (sample to detector) : <input type="text" size="5" id="input_L2" value="2.0"> m <br />
             L<sub>3</sub> (monochro chopper to sample) : <input type="text" size="5" id="input_L3" value="1.85"> m <br />
             L<sub>T0</sub> (moderator to T<sub>0</sub> chopper) : <input type="text" size="5" id="input_LT0" value="9.0"> m <br />
+            Scattering anlge (on the equator plane): <input type="text" size="6" id="tth_min" > deg to <input type="text" size="6" id="tth_max"> deg.<br />
             <input type="button" value="   set   " id="setInstParams_button"/><br />
-        </td>
-        <td>
-            <div class="dummy_text2">------</div>
-        </td>
-        <td valign="top">
-            Det1 : <input type="text" size="6" id="D1_tth_min" value="-29.165"> -  <input type="text" size="6" id="D1_tth_max" value="-10.835"><br />
-            Det2 : <input type="text" size="6" id="D2_tth_min" value="-9.165"> -  <input type="text" size="6" id="D2_tth_max" value="-3"><br />
-            Det3 : <input type="text" size="6" id="D3_tth_min" value="3"> -  <input type="text" size="6" id="D3_tth_max" value="9.165"><br />
-            Det4 : <input type="text" size="6" id="D4_tth_min" value="10.835"> -  <input type="text" size="6" id="D4_tth_max" value="29.165"><br />
-            Det5 : <input type="text" size="6" id="D5_tth_min" value="30.835"> -  <input type="text" size="6" id="D5_tth_max" value="49.165"><br />
-            Det6 : <input type="text" size="6" id="D6_tth_min" value="50.835"> -  <input type="text" size="6" id="D6_tth_max" value="69.165"><br />
-            Det7 : <input type="text" size="6" id="D7_tth_min" value="70.835"> -  <input type="text" size="6" id="D7_tth_max" value="89.165"><br />
-            Det8 : <input type="text" size="6" id="D8_tth_min" value="90.835"> -  <input type="text" size="6" id="D8_tth_max" value="109.165"><br />
-            Det9 : <input type="text" size="6" id="D9_tth_min" value="110.835"> -  <input type="text" size="6" id="D9_tth_max" value="129.165"><br />
         </td>
     </tr>
 </table>
@@ -104,49 +91,112 @@ See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite 
 <div class="dummy_space1" id="sec_QEcuts">-</div>
 <div class="dummy_space2">-</div>
 
-<div class="section_01"><i>Q</i>-<i>E</i> cuts (on the equator plane)</div>
+<div class="section_01"><i>Q</i>-<i>E</i> plots</div>
 <table>
     <tr>
-        <td width="380">
-            <b>Sample</b>
+        <td align="right">
+            <i>E</i><sub>1</sub>: <input type="text" size="6" id="Et_1" >, 
         </td>
-        <td width="300">
-            <b><i>q</i>-vectors</b>
+        <td align="right">
+            <i>E</i><sub>2</sub>: <input type="text" size="6" id="Et_2" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>3</sub>: <input type="text" size="6" id="Et_3" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>4</sub>: <input type="text" size="6" id="Et_4" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>5</sub>: <input type="text" size="6" id="Et_5" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>6</sub>: <input type="text" size="6" id="Et_6" >,
         </td>
     </tr>
     <tr>
-        <td>
-            <i>a</i>* : <input type="text" size="6" id="a_star" value="1.5"> A<sup>-1</sup><br />
-            <i>b</i>* : <input type="text" size="6" id="b_star" value="1.5"> A<sup>-1</sup><br />
-            angle between <i>a</i>* and <i>b</i>* : <input type="text" size="6" id="gamma_star" value="90"> deg.<br />
-            <input type="button" value="   set   " id="setLatticeParams_button"/><br />
+        <td align="right">
+            <i>E</i><sub>7</sub>: <input type="text" size="6" id="Et_7" >, 
         </td>
-        <td>
-                <i>q</i><sub>1</sub> : <i>h</i> <input type="text" size="6" id="qh1" value="0">, <i>k</i> <input type="text" size="6" id="qk1" value="0"><br />
-                <i>q</i><sub>2</sub> : <i>h</i> <input type="text" size="6" id="qh2" value="0">, <i>k</i> <input type="text" size="6" id="qk2" value="0"><br />
-                <i>q</i><sub>3</sub> : <i>h</i> <input type="text" size="6" id="qh3" value="0">, <i>k</i> <input type="text" size="6" id="qk3" value="0"><br />
-                <input type="button" value="   set   " id="setQVector_button"/><br />
+        <td align="right">
+            <i>E</i><sub>8</sub>: <input type="text" size="6" id="Et_8" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>9</sub>: <input type="text" size="6" id="Et_9" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>10</sub>: <input type="text" size="6" id="Et_10" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>11</sub>: <input type="text" size="6" id="Et_11" >, 
+        </td>
+        <td align="right">
+            <i>E</i><sub>12</sub>: <input type="text" size="6" id="Et_12" > 
         </td>
     </tr>
 </table>
+<input type="button" value="   set   " id="setTargetEvalues_button"/><br />
 <br />
-&omega;<sub>offset</sub> : <input type="text" size="5" id="omg_ofst" value="-57"> (&omega; angle for <b><i>a</i></b>* || <b><i>k</i></b><sub>i</sub>) <br />
-&omega; angle range : from <input type="text" size="5" id="omega1" value="-50"> to <input type="text" size="5" id="omega2" value="0"> degs <br />
-<input type="button" value="   set   " id="setScanParams_button"/><br />
->> Calculated &psi; angle range : from <input type="text" size="8" id="Psi1" value="0"> to <input type="text" size="8" id="Psi2" value="0"> (Note: &psi; = &minus; (&omega; &minus; &omega;<sub>offset</sub>))<br /> 
+<b>Target <i>Q</i> (A<sup>-1</sup>)</b>
+<table>
+    <tr>
+        <td align="right">
+            <i>Q</i><sub>1</sub>: <input type="text" size="6" id="Qt_1" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>2</sub>: <input type="text" size="6" id="Qt_2" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>3</sub>: <input type="text" size="6" id="Qt_3" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>4</sub>: <input type="text" size="6" id="Qt_4" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>5</sub>: <input type="text" size="6" id="Qt_5" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>6</sub>: <input type="text" size="6" id="Qt_6" >,
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <i>Q</i><sub>7</sub>: <input type="text" size="6" id="Qt_7" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>8</sub>: <input type="text" size="6" id="Qt_8" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>9</sub>: <input type="text" size="6" id="Qt_9" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>10</sub>: <input type="text" size="6" id="Qt_10" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>11</sub>: <input type="text" size="6" id="Qt_11" >, 
+        </td>
+        <td align="right">
+            <i>Q</i><sub>12</sub>: <input type="text" size="6" id="Qt_12" > 
+        </td>
+    </tr>
+</table>
+<input type="button" value="   set   " id="setTargetQvalues_button"/><br />
+
 <br />
+
+<b><i>Q-E</i> range</b><br />
+<input type="radio" name="QErange_type" id="QErange_Std" checked><label target="freeRot"> Standard setting : <i>Q</i><sub>max</sub> = 2.0<i>k</i><sub>i</sub>, 0.1<i>E</i><sub>i</sub> < <i>E</i><sub>f</sub> < 1.4<i>E</i><sub>i</sub> </label><br />
+<input type="radio" name="QErange_type" id="QErange_Man"><label target="freeRot"> Manual setting : </label>
+<i>Q</i><sub>max</sub>= <input type="text" size="4" id="Q_max" value="1.2"><i>k</i><sub>i</sub>,  
+<input type="text" size="4" id="Ef_max" value="1.4"><i>E</i><sub>i</sub> < <i>E</i><sub>f</sub> < <input type="text" size="4" id="Ef_min" value="0.1"><i>E</i><sub>i</sub> <br />
+<input type="button" value="   set   " id="setQErange_button"/><br />
+
 <br />
 
 <div class="section_02"><i>E</i><sub>i(1)</sub> = <font id="E1_calc"></font> meV</div>
 <table cellpadding="5">
     <tr>
         <td>
-            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw1"><input size="10" value="0" id="hbw1"> meV<br />
-            <canvas id="CanvasQxy1" width="500" height="500" class="box"></canvas>
-        </td>
-        <td>
-            Q-E cut from (H <input type="text" size="5" id="startH1" value="1">, K <input type="text" size="5" id="startK1" value="0">)  to  (H <input type="text" size="5" id="endH1" value="1">, K <input type="text" size="5" id="endK1" value="-1">) <input type="button" value="   set   " id="setScanRange_button1"/> <br />
-            <canvas id="CanvasQE1" width="500" height="390" class="box"></canvas>
+            <canvas id="CanvasQE1" width="800" height="390" class="box"></canvas>
         </td>
     </tr>
 </table>
@@ -155,12 +205,7 @@ See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite 
 <table cellpadding="5">
     <tr>    
         <td>
-            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw2"><input size="10" value="0" id="hbw2"> meV<br />
-            <canvas id="CanvasQxy2" width="500" height="500" class="box"></canvas>
-        </td>
-        <td>
-                Q-E cut from (H <input type="text" size="5" id="startH2" value="1">, K <input type="text" size="5" id="startK2" value="0">)  to  (H <input type="text" size="5" id="endH2" value="1">, K <input type="text" size="5" id="endK2" value="-1">) <input type="button" value="   set   " id="setScanRange_button2"/> <br />
-                <canvas id="CanvasQE2" width="500" height="390" class="box"></canvas>
+            <canvas id="CanvasQE2" width="800" height="390" class="box"></canvas>
         </td>
     </tr>
 </table>
@@ -169,12 +214,7 @@ See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite 
 <table cellpadding="5">
     <tr>    
         <td>
-            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw3"><input size="10" value="0" id="hbw3"> meV<br />
-            <canvas id="CanvasQxy3" width="500" height="500" class="box"></canvas>
-        </td>
-        <td>
-            Q-E cut from (H <input type="text" size="5" id="startH3" value="1">, K <input type="text" size="5" id="startK3" value="0">) to (H <input type="text" size="5" id="endH3" value="1">, K  <input type="text" size="5" id="endK3" value="-1">) <input type="button" value="   set   " id="setScanRange_button3"/><br />
-            <canvas id="CanvasQE3" width="500" height="390" class="box"></canvas>
+        <canvas id="CanvasQE3" width="800" height="390" class="box"></canvas>
         </td>
     </tr>
 </table>
@@ -183,12 +223,7 @@ See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite 
 <table cellpadding="5">
     <tr>    
         <td>
-            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw4"><input size="10" value="0" id="hbw4"> meV<br />
-            <canvas id="CanvasQxy4" width="500" height="500" class="box"></canvas>
-        </td>
-        <td>
-            Q-E cut from (H <input type="text" size="5" id="startH4" value="1">, K <input type="text" size="5" id="startK4" value="0">) to (H <input type="text" size="5" id="endH4" value="1">, K <input type="text" size="5" id="endK4" value="-1">) <input type="button" value="   set   " id="setScanRange_button4"/> <br />
-            <canvas id="CanvasQE4" width="500" height="390" class="box"></canvas>
+            <canvas id="CanvasQE4" width="800" height="390" class="box"></canvas>
         </td>
     </tr>
 </table>
@@ -197,12 +232,7 @@ See also <a href="https://mlfinfo.jp/en/bl12/" target="_blank">Official WebSite 
 <table cellpadding="5">
     <tr>    
         <td>
-            Energy transfer : <input type="range" value="0" min="-0.4" max="0.9" step="0.01" id="frac_hbw5"><input size="10" value="0" id="hbw5"> meV<br />
-            <canvas id="CanvasQxy5" width="500" height="500" class="box"></canvas>
-        </td>
-        <td>
-            Q-E cut from (H <input type="text" size="5" id="startH5" value="1">, K <input type="text" size="5" id="startK5" value="0">) to (H <input type="text" size="5" id="endH5" value="1">, K <input type="text" size="5" id="endK5" value="-1">) <input type="button" value="   set   " id="setScanRange_button5"/><br />
-            <canvas id="CanvasQE5" width="500" height="390" class="box"></canvas>
+            <canvas id="CanvasQE5" width="800" height="390" class="box"></canvas>
         </td>
     </tr>
 </table>
